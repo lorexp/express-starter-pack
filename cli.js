@@ -4,7 +4,7 @@ const path = require("path");
 const { exec } = require("child_process");
 
 const data =
-  "const express = require('express');\n\napp = express();\n\nconst port = 3000;\n\n\napp.listen(port, () => {console.log(`Listening on port ${port}`)});";
+  "const express = require('express');\n\nconst app = express();\n\n\napp.get('/', (req, res) => { res.send('Hello World');  });\n\napp.listen(3000, () => {console.log('Listening on port 3000')});";
 
 fs.mkdir(path.resolve("./config"), () => {
   console.log("Creating config folder");
@@ -23,7 +23,7 @@ fs.mkdir(path.resolve("./models"), () => {
 });
 
 fs.writeFile(path.resolve("./index.js"), data, () => {
-  console.log("Created file.js");
+  console.log("Created index.js");
 });
 
 exec("npm init -y", (error, stdout, stderr) => {
