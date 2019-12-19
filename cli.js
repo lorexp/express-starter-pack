@@ -3,8 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
 
-const data =
-  "const express = require('express');\n\nconst app = express();\n\n\napp.get('/', (req, res) => { res.send('Hello World');  });\n\napp.listen(3000, () => {console.log('Listening on port 3000')});";
+const data = `const express = require('express');\n\nconst app = express();\n\n\napp.get('/', (req, res) => { res.send('Hello World');  });\n\napp.listen(3000, () => {console.log('Listening on port 3000')});`;
 
 fs.mkdir(path.resolve("./config"), () => {
   console.log("Creating config folder");
